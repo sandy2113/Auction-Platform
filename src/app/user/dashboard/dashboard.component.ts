@@ -8,9 +8,11 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class DashboardComponent {
 
+  isLoggedIn: boolean = false;
     constructor(private http: HttpClient, private route: ActivatedRoute) {}
   ngOnInit(): void {
-    console.log("helooo");
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+    console.log("isUser",isLoggedIn);
     // This will trigger after the Google redirect completes.
     // If you're using the One Tap button or Sign-in button:
     this.initializeGoogleSignIn();
