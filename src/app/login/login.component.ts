@@ -21,6 +21,12 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+    console.log("isUser",isLoggedIn);
+    if (isLoggedIn) {
+      this.router.navigate(['/dashboard']);
+      return;
+    }
     this.initializeGoogleSignIn();
   }
 
@@ -45,12 +51,18 @@ export class LoginComponent {
       .subscribe({
         next: (res: any) => {
           console.log('Logged in successfully:', res);
+          sessionStorage.setItem('isLoggedIn', 'true');
           this.router.navigate(['/dashboard']);
         },
         error: (err) => {
           console.error('Login failed', err);
         }
       });
+  }
+  
+  logout(): void {
+    localStorage.removeItem('isLoggedIn');
+    this.router.navigate(['/login']);
   }
 
 }
