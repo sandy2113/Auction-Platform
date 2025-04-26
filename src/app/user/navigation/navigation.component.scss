@@ -1,0 +1,23 @@
+.navbar {
+    width: 250px; /* <-- Make it smaller, like a sidebar */
+    height: 100vh; /* Full height */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* left align items */
+    padding: 1rem;
+    box-sizing: border-box;
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+  
+    button {
+      width: 100%;
+      justify-content: flex-start;
+      color: white;
+      margin-bottom: 1rem;
+    }
+  }
+  
