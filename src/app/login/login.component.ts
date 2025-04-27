@@ -24,7 +24,7 @@ export class LoginComponent {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
     console.log("isUser",isLoggedIn);
     if (isLoggedIn) {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/user']);
       return;
     }
     this.initializeGoogleSignIn();
@@ -52,7 +52,7 @@ export class LoginComponent {
         next: (res: any) => {
           console.log('Logged in successfully:', res);
           sessionStorage.setItem('isLoggedIn', 'true');
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/user']);
         },
         error: (err) => {
           console.error('Login failed', err);

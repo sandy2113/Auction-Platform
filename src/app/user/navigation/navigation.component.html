@@ -1,11 +1,36 @@
-<mat-toolbar color="primary" class="navbar">
-    <span class="logo">MyApp</span>
-  
-    <span class="spacer"></span>
-  
-    <button mat-button routerLink="/">Home</button>
-    <button mat-button routerLink="/about">About</button>
-    <button mat-button routerLink="/services">Services</button>
-    <button mat-button routerLink="/contact">Contact</button>
-  </mat-toolbar>
-  
+<div class="full-sidebar">
+  <div class="sidebar-header">
+    <img src="assets/man.png" class="avatar" alt="User Avatar" />
+    <div class="user-info">
+      <h4>Sandesh Shivane</h4>
+      <small>Session ends in 9 min 5s</small>
+    </div>
+    <button class="logout-button">
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <!-- <h5>Banking</h5> -->
+    <div class="menu-item" *ngFor="let item of bankingItems" [routerLink]="item.route" routerLinkActive="active">
+      <mat-icon>{{item.icon}}</mat-icon>
+      <span>{{item.label}}</span>
+    </div>
+  </div>
+
+  <!-- <div class="sidebar-section">
+    <h5>Services</h5>
+    <div class="menu-item" *ngFor="let item of serviceItems">
+      <mat-icon>{{item.icon}}</mat-icon>
+      <span>{{item.label}}</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h5>Other</h5>
+    <div class="menu-item" *ngFor="let item of otherItems">
+      <mat-icon>{{item.icon}}</mat-icon>
+      <span>{{item.label}}</span>
+    </div>
+  </div>
+</div> -->

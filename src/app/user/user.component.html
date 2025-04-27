@@ -1,1 +1,30 @@
-<p>user works!</p>
+<div class="top-navbar">
+    <div class="navbar-left">
+      <mat-icon (click)="toggle()">menu</mat-icon>
+      <span>Dashboard</span>
+    </div>
+    <div class="navbar-right">
+      <div class="user-info">
+        <span>Michał Kowalski</span>
+        <mat-icon>account_circle</mat-icon>
+      </div>
+      <button class="logout-button">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+    </div>
+  </div>
+  
+
+
+<mat-drawer-container class="example-container" [hasBackdrop]="false">
+    <mat-drawer #drawer mode="push" opened="true">
+      <app-navigation></app-navigation> <!-- Your side nav component -->
+    </mat-drawer>
+  
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+
+      <!-- <button (click)="toggle()">Toggle Drawer</button> -->
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
