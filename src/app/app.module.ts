@@ -16,7 +16,13 @@ import { NavigationComponent } from './user/navigation/navigation.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatListModule} from '@angular/material/list'; 
+import {MatListModule} from '@angular/material/list';
+import { BidsComponent } from './user/bids/bids.component';
+import { ListingsComponent } from './user/listings/listings.component';
+import { NotificationComponent } from './user/notification/notification.component';
+import { HistoryComponent } from './user/history/history.component';
+import { SettingComponent } from './user/setting/setting.component';
+import { PaymentComponent } from './user/payment/payment.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +31,13 @@ import {MatListModule} from '@angular/material/list';
     UserComponent,
     DashboardComponent,
     NavigationComponent,
-    SidebarComponent
+    SidebarComponent,
+    BidsComponent,
+    ListingsComponent,
+    NotificationComponent,
+    HistoryComponent,
+    SettingComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

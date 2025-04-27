@@ -32,13 +32,13 @@ export class NavigationComponent implements AfterViewInit {
 
   bankingItems = [
     { icon: 'dashboard', label: 'Dashboard', route: '/user/dashboard' },
-    { icon: 'history', label: 'Browse Auctions', route: '/user/search' },
-    { icon: 'bar_chart', label: 'My Bids' },
-    { icon: 'account_balance_wallet', label: 'My Listings' },
-    { icon: 'dashboard', label: 'Notifications' },
-    { icon: 'history', label: 'Payment History' },
-    { icon: 'bar_chart', label: 'Payout Settings' },
-    { icon: 'account_balance_wallet', label: 'Profile Settings' },
+    { icon: 'search', label: 'Browse Auctions', route: '/user/search' },
+    { icon: 'view_list', label: 'My Bids', route: '/user/bids' },
+    { icon: 'business', label: 'My Listings', route: '/user/listings' },
+    { icon: 'notifications', label: 'Notifications', route: '/user/notification' },
+    { icon: 'history', label: 'Payment History', route: '/user/history' },
+    { icon: 'payment', label: 'Payout Settings', route: '/user/payment'},
+    { icon: 'settings', label: 'Profile Settings', route: '/user/setting' },
   ];
 
   // serviceItems = [
