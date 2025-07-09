@@ -23,6 +23,7 @@ import { NotificationComponent } from './user/notification/notification.componen
 import { HistoryComponent } from './user/history/history.component';
 import { SettingComponent } from './user/setting/setting.component';
 import { PaymentComponent } from './user/payment/payment.component'; 
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,7 @@ import { PaymentComponent } from './user/payment/payment.component';
     NotificationComponent,
     HistoryComponent,
     SettingComponent,
-    PaymentComponent
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +50,7 @@ import { PaymentComponent } from './user/payment/payment.component';
     MatIconModule,
     HttpClientModule,
     MatToolbarModule,
+    FormsModule,
     MatButtonModule
   ],
   providers: [],

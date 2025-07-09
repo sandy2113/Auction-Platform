@@ -2,49 +2,56 @@
     <div style="display: flex;justify-content: center; height: fit-content;">
     <div class="container" [ngClass]="{ 'right-panel-active': isSignUp }" id="container">
       <div class="form-container sign-up-container">
-        <form>
+        <form (ngSubmit)="insertUser()" #signUpForm="ngForm">
           <h1>Create Account</h1>
+        
           <div class="social-container">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div>
+        
           <span>or use your email for registration</span>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button>Sign Up</button>
+        
+          <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required />
+          <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+          <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+        
+          <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
         </form>
+        
       </div>
     
       <div class="form-container sign-in-container">
-        <form>
+
+        <form (ngSubmit)="getLogin()">
           <h1>Sign in</h1>
           <div id="buttonDiv" style="margin-bottom: 10px; margin-top: 10px;">
             <div class="social-container">
               <div id="g_id_onload"
-              data-client_id="181383326350-sordhji70sehh00h661rmlgjai0bn5n4.apps.googleusercontent.com"
-              data-context="use"
-              data-ux_mode="popup"
-              data-auto_prompt="false">
+                data-client_id="YOUR_CLIENT_ID"
+                data-context="use"
+                data-ux_mode="popup"
+                data-auto_prompt="false">
+              </div>
+              <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="filled_blue"
+                data-text="signin_with"
+                data-size="medium"
+                data-logo_alignment="left">
+              </div>
             </div>
-            
-            <div class="g_id_signin"
-            data-type="standard"
-            data-shape="pill"
-            data-theme="filled_blue"
-            data-text="signin_with"
-            data-size="medium"
-            data-logo_alignment="left">
           </div>
-        </div>
-          </div>
+        
           <span>or use your account</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+          <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
           <a href="#">Forgot your password?</a>
-          <button  routerLink="/dashboard" >Sign In</button>
+          <button type="submit">Sign In</button>
         </form>
+        
       </div>
     
       <div class="overlay-container">

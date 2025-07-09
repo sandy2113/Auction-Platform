@@ -3,7 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { ActivatedRoute } from '@angular/router';
 import { AuctionServiceService } from '../auction-service.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -19,7 +19,7 @@ export class UserComponent {
   }
 
   isLoggedIn: boolean = false;
-    constructor(private http: HttpClient, private route: ActivatedRoute, private drawerService: AuctionServiceService) {}
+    constructor(private http: HttpClient, private route: ActivatedRoute, private drawerService: AuctionServiceService,private router: Router) {}
   ngOnInit(): void {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
     console.log("isUser",isLoggedIn);
@@ -66,5 +66,13 @@ export class UserComponent {
         }
       });
   }
+
+  logout(): void {
+    console.log("(((");
+    if (confirm('Are you sure you want to logout?')) {
+      sessionStorage.clear();
+      this.router.navigate(['/login']);
+    }
+  }  
 
 }
