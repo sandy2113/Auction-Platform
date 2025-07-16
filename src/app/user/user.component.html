@@ -5,7 +5,7 @@
     </div>
     <div class="navbar-right">
       <div class="user-info">
-        <span>Michał Kowalski</span>
+        <span>Sandesh Shivane</span>
         <mat-icon>account_circle</mat-icon>
       </div>
       <button class="logout-button">
@@ -13,15 +13,18 @@
       </button>
     </div>
   </div>
+
+
+
   
 
 
 <mat-drawer-container class="example-container" [hasBackdrop]="false">
-    <mat-drawer #drawer mode="push" opened="true">
+    <mat-drawer #drawer mode="side" opened="true">
       <app-navigation></app-navigation> <!-- Your side nav component -->
     </mat-drawer>
   
-    <mat-drawer-content>
+    <mat-drawer-content style="display: block;">
         <router-outlet></router-outlet>
 
       <!-- <button (click)="toggle()">Toggle Drawer</button> -->

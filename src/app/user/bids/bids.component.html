@@ -1,1 +1,38 @@
-<p>bids works!</p>
+<div class="my-bids-container">
+  <h1>My Bids</h1>
+
+  <div class="card-list">
+    <mat-card *ngFor="let auction of auctions" class="auction-row mat-elevation-z2">
+      <div class="card-content-row">
+        <!-- Product Image -->
+        <img [src]="auction.productImage" class="product-thumb" alt="{{ auction.productName }}" />
+
+        <!-- Details Block -->
+        <div class="card-details">
+          <h2 class="product-name">{{ auction.productName }}</h2>
+          <p><strong>Auction ID:</strong> {{ auction.auctionId }}</p>
+          <p><strong>Auction Name:</strong> {{ auction.auctionName }}</p>
+          <p><strong>Final Bid:</strong> {{ auction.finalPrice | currency }}</p>
+          <p><strong>Start Date:</strong> {{ auction.startDate | date }}</p>
+          <p><strong>End Date:</strong> {{ auction.endDate | date }}</p>
+          <p>
+            <strong>Status:</strong>
+            <span class="status-badge" [ngClass]="{
+              ongoing: auction.status === 'Ongoing',
+              ended: auction.status === 'Ended'
+            }">
+              {{ auction.status }}
+            </span>
+          </p>
+        </div>
+
+        <!-- Action -->
+        <div class="card-action">
+          <button mat-button color="primary" (click)="openHistoryDialog(auction)">
+            View Bid History
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

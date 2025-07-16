@@ -23,12 +23,26 @@ import { NotificationComponent } from './user/notification/notification.componen
 import { HistoryComponent } from './user/history/history.component';
 import { SettingComponent } from './user/setting/setting.component';
 import { PaymentComponent } from './user/payment/payment.component'; 
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CreateAuctionComponent } from './user/create-auction/create-auction.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core'; // Needed for native Date adapter
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { SearchComponent } from './user/search/search.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ProductComponent } from './user/product/product.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    SearchComponent,
     DashboardComponent,
     NavigationComponent,
     SidebarComponent,
@@ -37,15 +51,28 @@ import { PaymentComponent } from './user/payment/payment.component';
     NotificationComponent,
     HistoryComponent,
     SettingComponent,
-    PaymentComponent
+    PaymentComponent,
+    CreateAuctionComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
+    FormsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatSelectModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatIconModule,
     HttpClientModule,
     MatToolbarModule,

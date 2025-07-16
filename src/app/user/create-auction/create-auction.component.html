@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Create Auction</h2>
+
+<mat-dialog-content [formGroup]="auctionForm">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Auction Name</mat-label>
+    <input matInput formControlName="auctionName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Start Date</mat-label>
+    <input matInput [matDatepicker]="startPicker" formControlName="startDate" />
+    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+    <mat-datepicker #startPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>End Date</mat-label>
+    <input matInput [matDatepicker]="endPicker" formControlName="endDate" />
+    <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+    <mat-datepicker #endPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Starting Price</mat-label>
+    <input matInput type="number" formControlName="startPrice" />
+  </mat-form-field>
+
+  <!-- Product selection -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Product</mat-label>
+    <mat-select formControlName="productId">
+      <mat-option *ngFor="let product of products" [value]="product.id">
+        {{ product.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button color="accent" (click)="openCreateProductDialog()">
+    <mat-icon>add_circle</mat-icon>
+    Create New Product
+  </button>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-flat-button color="primary" (click)="saveAuction()">
+    Save Auction
+  </button>
+</mat-dialog-actions>

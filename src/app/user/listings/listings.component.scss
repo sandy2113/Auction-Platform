@@ -1,0 +1,104 @@
+.my-auctions-container {
+  padding: 16px;
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      .search-field {
+        width: 300px;
+      }
+    }
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .auction-card {
+    transition: box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    img[mat-card-image] {
+      height: 160px;
+      object-fit: cover;
+    }
+
+    mat-card-content {
+      padding: 16px;
+
+      .product-name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #333;
+      }
+
+      p {
+        margin: 4px 0;
+        font-size: 0.85rem;
+        color: #555;
+      }
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      &.ongoing {
+        background-color: #c8e6c9;
+        color: #2e7d32;
+      }
+
+      &.ended {
+        background-color: #ffcdd2;
+        color: #c62828;
+      }
+
+      &.upcoming {
+        background-color: #bbdefb;
+        color: #1565c0;
+      }
+    }
+
+    mat-card-actions {
+      display: flex;
+      justify-content: flex-end;
+      padding: 8px 16px;
+
+      button {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+      }
+    }
+  }
+}
