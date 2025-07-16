@@ -1,1 +1,52 @@
-<p>listings works!</p>
+<div class="my-auctions-container">
+      <div class="header-bar">
+      <h1>My Auction Listings</h1>
+
+      <div class="header-actions">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search My Listings</mat-label>
+          <input matInput placeholder="Search auctions or products..." />
+          <button mat-icon-button matSuffix >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" (click)="openCreateAuctionDialog()">
+          <mat-icon>add</mat-icon>
+          Create Auction
+        </button>
+      </div>
+    </div>
+
+
+  <div class="cards-grid">
+    <mat-card *ngFor="let auction of auctions" class="auction-card mat-elevation-z4">
+      <img mat-card-image [src]="auction.productImage" alt="{{ auction.productName }}" />
+
+      <mat-card-content>
+        <h2 class="product-name">{{ auction.productName }}</h2>
+        <p><strong>Auction Name:</strong> {{ auction.auctionName }}</p>
+        <p><strong>Starting Price:</strong> {{ auction.startPrice | currency }}</p>
+        <p><strong>Current Highest Bid:</strong> {{ auction.currentBid | currency }}</p>
+        <p><strong>Start Date:</strong> {{ auction.startDate | date }}</p>
+        <p><strong>End Date:</strong> {{ auction.endDate | date }}</p>
+        <p>
+          <strong>Status:</strong>
+          <span class="status-badge" [ngClass]="{
+              ongoing: auction.status === 'Ongoing',
+              ended: auction.status === 'Ended',
+              upcoming: auction.status === 'Upcoming'
+            }">
+            {{ auction.status }}
+          </span>
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button color="primary">
+          View Bids
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
