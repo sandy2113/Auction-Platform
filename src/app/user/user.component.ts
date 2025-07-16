@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class UserComponent {
 
   @ViewChild('drawer') drawer!: MatDrawer;
+  userName:String | undefined;
 
   toggle() {
     console.log('Toggling Drawer');
@@ -29,9 +30,26 @@ export class UserComponent {
 
     // Or if you're using OAuth redirect, you'll check the URL for the token
     const idToken = this.route.snapshot.queryParamMap.get('id_token');
+    this.call();
     if (idToken) {
       this.sendTokenToBackend(idToken);  // send the token to backend for verification
     }
+  }
+
+  call(){
+    this.setUsername();
+  }
+
+  setUsername():void{
+    const userDataRaw = sessionStorage.getItem('userDetails');    
+    if (userDataRaw) {
+      const userDetails = JSON.parse(userDataRaw);
+      this.userName = userDetails.name;
+      console.log('User name:',this. userName);
+    } else {
+      console.warn('No userDetails found in sessionStorage');
+    }
+     
   }
 
   initializeGoogleSignIn(): void {

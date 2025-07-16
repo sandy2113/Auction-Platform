@@ -162,6 +162,7 @@ private countdownIntervalId: any;
     { icon: 'history', label: 'Payment History', route: '/user/history' },
     { icon: 'payment', label: 'Payout Settings', route: '/user/payment'},
     { icon: 'settings', label: 'Profile Settings', route: '/user/setting' },
+    { icon: 'add', label: 'Sale Prodcut', route: '/user/add-product' },
   ];
 
   // serviceItems = [

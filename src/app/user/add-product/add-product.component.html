@@ -1,0 +1,43 @@
+<div class="page-container">
+    <div class="add-product-card">
+      <h2>Add New Auction Product</h2>
+  
+      <form (ngSubmit)="submitProduct()" #productForm="ngForm" class="add-product-form">
+        <div class="form-group">
+          <label for="name">Product Name</label>
+          <input id="name" type="text" [(ngModel)]="product.name" name="name" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="bid">Starting Bid (₹)</label>
+          <input id="bid" type="number" [(ngModel)]="product.startingBid" name="startingBid" required />
+        </div>
+  
+        <div class="form-group">
+            <label>Product Image</label>
+            <input type="file" (change)="onFileSelected($event)" />
+                    </div>
+  
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" [(ngModel)]="product.status" name="status">
+            <option value="Upcoming">Upcoming</option>
+            <option value="Live">Live</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <label for="start">Start Time</label>
+            <input id="start" type="datetime-local" [(ngModel)]="product.startTime" name="startTime" required />
+          </div>          
+  
+        <div class="form-group">
+          <label for="end">End Time</label>
+          <input id="end" type="datetime-local" [(ngModel)]="product.endTime" name="endTime" required />
+        </div>
+  
+        <button type="submit" class="submit-btn">Submit Product</button>
+      </form>
+    </div>
+  </div>
+  

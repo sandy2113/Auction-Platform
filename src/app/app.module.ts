@@ -24,6 +24,10 @@ import { HistoryComponent } from './user/history/history.component';
 import { SettingComponent } from './user/setting/setting.component';
 import { PaymentComponent } from './user/payment/payment.component'; 
 import { FormsModule } from '@angular/forms';
+import { AuctionRoomComponent } from './components/auction-room/auction-room.component';
+import { AddProductComponent } from './user/add-product/add-product.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +43,8 @@ import { FormsModule } from '@angular/forms';
     HistoryComponent,
     SettingComponent,
     PaymentComponent,
+    AuctionRoomComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MatToolbarModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,6 +12,8 @@ import { NotificationComponent } from './user/notification/notification.componen
 import { HistoryComponent } from './user/history/history.component';
 import { PaymentComponent } from './user/payment/payment.component';
 import { SettingComponent } from './user/setting/setting.component';
+import { AuctionRoomComponent } from './components/auction-room/auction-room.component';
+import { AddProductComponent } from './user/add-product/add-product.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -30,6 +32,8 @@ const routes: Routes = [
       { path: 'history', component: HistoryComponent },
       { path: 'payment', component: PaymentComponent },
       { path: 'setting', component: SettingComponent },
+      { path: 'auction/:id', component: AuctionRoomComponent },
+      { path: 'add-product', component: AddProductComponent },
     ]
   },
   {

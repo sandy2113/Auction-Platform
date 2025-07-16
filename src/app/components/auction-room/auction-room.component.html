@@ -1,0 +1,30 @@
+<div class="auction-room" *ngIf="product">
+    <h2>{{ product.name }}</h2>
+    <img [src]="product.image" [alt]="product.name" class="product-image" />
+  
+    <p><strong>Current Bid:</strong> ₹{{ product.currentBid }}</p>
+  
+    <h4>Last 3 Bids</h4>
+    <ul *ngIf="product.bids?.length; else noBids">
+      <li *ngFor="let bid of product.bids.slice(-5).reverse()">
+        ₹{{ bid.amount }} by {{ bid.user }} at {{ bid.time | date:'shortTime' }}
+      </li>
+    </ul>
+    <ng-template #noBids>
+      <p>No bids yet.</p>
+    </ng-template>
+  
+    <div class="place-bid">
+      <input
+        type="number"
+        placeholder="Enter your bid"
+        [(ngModel)]="newBidAmount"
+      />
+      <button (click)="placeBid()">Place Bid</button>
+    </div>
+  </div>
+  
+  <div *ngIf="!product">
+    <p>Product not found.</p>
+  </div>
+  
