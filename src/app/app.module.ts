@@ -28,12 +28,26 @@ import { AuctionRoomComponent } from './components/auction-room/auction-room.com
 import { AddProductComponent } from './user/add-product/add-product.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CreateAuctionComponent } from './user/create-auction/create-auction.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core'; // Needed for native Date adapter
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { SearchComponent } from './user/search/search.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ProductComponent } from './user/product/product.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    SearchComponent,
     DashboardComponent,
     NavigationComponent,
     SidebarComponent,
@@ -44,15 +58,28 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     SettingComponent,
     PaymentComponent,
     AuctionRoomComponent,
-    AddProductComponent,
+    AddProductComponent,,
+    CreateAuctionComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
+    FormsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatSelectModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatIconModule,
     HttpClientModule,
     MatToolbarModule,

@@ -1,0 +1,88 @@
+.my-bids-container {
+  padding: 16px;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auction-row {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+
+    // Add permanent shadow here
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  // Optional: smoother on hover
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-content-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .product-thumb {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .card-details {
+    flex: 1;
+    font-size: 0.9rem;
+
+    .product-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 2px 0;
+      line-height: 1.4;
+    }
+  }
+
+  .card-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    &.ongoing {
+      background-color: #c8e6c9;
+      color: #2e7d32;
+    }
+
+    &.ended {
+      background-color: #ffcdd2;
+      color: #c62828;
+    }
+  }
+}

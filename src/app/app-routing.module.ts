@@ -14,6 +14,7 @@ import { PaymentComponent } from './user/payment/payment.component';
 import { SettingComponent } from './user/setting/setting.component';
 import { AuctionRoomComponent } from './components/auction-room/auction-room.component';
 import { AddProductComponent } from './user/add-product/add-product.component';
+import { CreateAuctionComponent } from './user/create-auction/create-auction.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: 'setting', component: SettingComponent },
       { path: 'auction/:id', component: AuctionRoomComponent },
       { path: 'add-product', component: AddProductComponent },
+      { path: 'create', component: CreateAuctionComponent },
     ]
   },
   {
