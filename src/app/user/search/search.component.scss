@@ -59,7 +59,11 @@
 
   img[mat-card-image] {
     height: 120px;
-    object-fit: cover;
+    width: 100%;
+    object-fit:contain;
+    border-radius: 400px;
+    background-color: #fff;
+    padding: 2px;
   }
 
   mat-card-content {
@@ -101,4 +105,67 @@
       padding: 4px 8px;
     }
   }
+
+  .liveJoining {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .status-badge {
+    padding: 4px 10px;
+    font-size: 13px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .status-badge.ongoing {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .status-badge.upcoming {
+    background-color: #ffe5e5;
+    color: #cc0000;
+  }
+  
+  .status-badge.ended {
+    background-color: #f0f0f0;
+    color: #666;
+  }
+  
+  .action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .join-button {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .join-button:hover {
+    background-color: #218838;
+  }
+  
+  .bell-icon {
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .bell-icon.subscribed {
+    color: #fbbc05;
+  }
+  
 }

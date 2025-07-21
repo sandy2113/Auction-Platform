@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuctionDetails } from '../components/auction-room/auction-details.model';
+import { AuctionDetails, AuctionProductDTO } from '../components/auction-room/auction-details.model';
 import { AuctionProduct } from '../components/auction-room/auction-productmodel';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { AuctionProduct } from '../components/auction-room/auction-productmodel'
 })
 export class AuthService {
   private loginUrl = 'http://localhost:8080/api/auth/login'; // your backend endpoint
-  public baseServiceUrl='http://localhost:8080/';
+  public API_BASE_URL='http://localhost:8080/';
 public imagePath="http://localhost:8080/uploads/images/";
   constructor(private http: HttpClient) {}
 
@@ -21,24 +21,25 @@ public imagePath="http://localhost:8080/uploads/images/";
   }
 
   getAuctionDetails(id: string): Observable<AuctionDetails> {
-    return this.http.get<AuctionDetails>(`${this.baseServiceUrl}api/auction/${id}`);
-  }
-  getAllAuctionProducts(): Observable<AuctionProduct[]> {
-    return this.http.get<AuctionProduct[]>(`${this.baseServiceUrl}api/auction-products`);
+    return this.http.get<AuctionDetails>(`${this.API_BASE_URL}api/auction/${id}`);
   }
 
-  subscribeToAuction(productId: string, userId: string): Observable<string> {
-    return this.http.post(`${this.baseServiceUrl}api/subscription/subscribe`, null, {
-      params: { productId, userId },
-      responseType: 'text'
+  getAllAuctionProducts(userId: any): Observable<AuctionProductDTO[]> {
+    const params = new HttpParams().set('userId', userId);
+    return this.http.get<AuctionProductDTO[]>(`${this.API_BASE_URL}api/auction-products`, { params });
+  }
+  subscribeToAuction(productId: string, userId: string): Observable<any> {
+    return this.http.post(`${this.API_BASE_URL}api/subscription/subscribe`, {
+      productId,
+      userId
     });
   }  
 
   getAllAuctions(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseServiceUrl}auction`);
+    return this.http.get<any[]>(`${this.API_BASE_URL}auction`);
   }
 
   getUserSubscriptions(userId: string): Observable<string[]> {
-    return this.http.get<string[]>(`${this.baseServiceUrl}subscription/user/${userId}`);
+    return this.http.get<string[]>(`${this.API_BASE_URL}subscription/user/${userId}`);
   }
 }

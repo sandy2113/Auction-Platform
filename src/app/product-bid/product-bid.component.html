@@ -1,0 +1,18 @@
+<div class="row border-card" >
+    <p class="bold" style="
+    font-weight: bolder;">Active People</p>
+    <div class="col-sm-6 col-lg-3" *ngFor="let productcard of activeUsers">
+      <mat-card class="cardWithShadow productcard">
+        <mat-card-content class="p-b-24 p-t-12 position-relative">
+          <button mat-mini-fab class="icon-30 cart-btn bg-success text-white d-block" matTooltip="Add to Cart">
+          </button>
+          <div class="py-2">
+              <mat-card-title style="font-size: 12px;">
+                {{ productcard.name }}
+              </mat-card-title>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

@@ -27,12 +27,39 @@
         <p>Initial Bid: <strong>{{ auction.finalPrice | currency }}</strong></p>
         <p>Start: {{ auction.startDate | date }}</p>
         <p>End: {{ auction.endDate | date }}</p>
-        <span class="status-badge" [ngClass]="{
-            ongoing: auction.status === 'Ongoing',
-            ended: auction.status === 'Ended'
-          }">
-          {{ auction.status }}
-        </span>
+        <div class="liveJoining">
+          <!-- Status Badge -->
+          <span class="status-badge"
+                [ngClass]="{
+                  ongoing: auction.status === 'Live',
+                  upcoming: auction.status === 'Upcoming',
+                  ended: auction.status === 'Ended'
+                }">
+            {{ auction.status }}
+          </span>
+        
+          <!-- Actions based on status -->
+          <div class="action-buttons">
+            <!-- Bell for upcoming -->
+            <mat-icon 
+              *ngIf="auction.status === 'Upcoming'" 
+              class="bell-icon" 
+              (click)="subscribeToAuction(auction.auctionId,$event)"
+              [ngClass]="{ subscribed: auction.subscribed }"
+            >
+              {{ auction.subscribed ? 'notifications_active' : 'notifications_none' }}
+            </mat-icon>
+        
+            <!-- Join button for live -->
+            <button 
+              *ngIf="auction.status === 'Live'" 
+              (click)="redirectToRoom(auction.auctionId)" 
+              class="join-button">
+              Join
+            </button>
+          </div>
+        </div>
+        
       </mat-card-content>
     </mat-card>
   </div>

@@ -1,0 +1,137 @@
+.top-projects-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    font-family: 'Segoe UI', sans-serif;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+  
+      h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #111827;
+      }
+  
+      p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+  
+      .month-selector {
+        padding: 6px 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        background: white;
+      }
+    }
+  
+    .projects-table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th {
+        text-align: left;
+        padding-bottom: 0.75rem;
+        color: #6b7280;
+        font-size: 0.875rem;
+      }
+  
+      td {
+        padding: 1rem 0;
+        border-top: 1px solid #e5e7eb;
+        font-size: 0.95rem;
+        vertical-align: middle;
+      }
+  
+      .product-info {
+        display: flex;
+        align-items: center;
+  
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          margin-right: 12px;
+          object-fit: cover;
+        }
+  
+        .text {
+          .name {
+            font-weight: 500;
+            color: #111827;
+          }
+  
+          .category {
+            font-size: 0.75rem;
+            color: #9ca3af;
+          }
+        }
+      }
+  
+      .status {
+        padding: 4px 10px;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        display: inline-block;
+      }
+  
+      .status.low {
+        background-color: #d1fae5;
+        color: #065f46;
+      }
+  
+      .status.medium {
+        background-color: #fef3c7;
+        color: #92400e;
+      }
+  
+      .status.high {
+        background-color: #e0e7ff;
+        color: #4338ca;
+      }
+  
+      .status.critical {
+        background-color: #fee2e2;
+        color: #991b1b;
+      }
+    }
+
+    .pagination-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    
+      ::ng-deep .ngx-pagination {
+        display: flex;
+        list-style: none;
+        gap: 0.5rem;
+      }
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      margin-left: 8px;
+    }
+    
+    
+     
+  }
+  

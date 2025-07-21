@@ -38,8 +38,9 @@ export class AddProductComponent {
     formData.append('image', this.selectedFile);
     formData.append('startTime', this.product.startTime);
     formData.append('sellerId',sellerId);
+    formData.append('duration',"5");
 
-    this.http.post(this.authservice.baseServiceUrl+'api/auction-products', formData).subscribe({
+    this.http.post(this.authservice.API_BASE_URL+'api/auction-products', formData).subscribe({
       next: () => {
         alert('Product added successfully!');
         this.resetForm();

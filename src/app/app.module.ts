@@ -23,10 +23,8 @@ import { NotificationComponent } from './user/notification/notification.componen
 import { HistoryComponent } from './user/history/history.component';
 import { SettingComponent } from './user/setting/setting.component';
 import { PaymentComponent } from './user/payment/payment.component'; 
-import { FormsModule } from '@angular/forms';
 import { AuctionRoomComponent } from './components/auction-room/auction-room.component';
 import { AddProductComponent } from './user/add-product/add-product.component';
-import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -41,6 +39,11 @@ import { MatCardModule } from '@angular/material/card';
 import { SearchComponent } from './user/search/search.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductComponent } from './user/product/product.component';
+import { ProductBidsDetailsComponent } from './product-bids-details/product-bids-details.component';
+import { RecentsBidsComponent } from './recents-bids/recents-bids.component';
+import { ProductBidComponent } from './product-bid/product-bid.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,11 +61,16 @@ import { ProductComponent } from './user/product/product.component';
     SettingComponent,
     PaymentComponent,
     AuctionRoomComponent,
-    AddProductComponent,,
+    AddProductComponent,
     CreateAuctionComponent,
-    ProductComponent
+    ProductComponent,
+    RecentsBidsComponent,
+    ProductBidsDetailsComponent,
+    ProductBidComponent,
   ],
   imports: [
+    NgxPaginationModule,
+    ToastrModule.forRoot(),
     BrowserModule,
     RouterModule,
     FormsModule,
@@ -86,7 +94,6 @@ import { ProductComponent } from './user/product/product.component';
     FormsModule,
     MatButtonModule,
     MatTooltipModule,
-    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

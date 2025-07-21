@@ -1,0 +1,78 @@
+<div class="top-projects-card">
+<div class="header">
+  <div>
+    <h3>Top Bids</h3>
+  </div>
+</div>
+
+<!--
+    <table class="projects-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bid of bids">
+          <td class="product-info">
+            <img [src]="bid.bidder?.image || 'https://via.placeholder.com/40'" alt="Bidder" />
+            <div class="text">
+              <div class="name">{{ bid.name }}</div>
+              <div class="category">Bidder</div>
+            </div>
+          </td>
+          <td>{{ bid.amount }} </td>
+          <td>
+            <span class="badge" [ngClass]="'bg-success'">
+              Live
+            </span> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    -->
+    
+
+    <table class="projects-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Amount</th>
+          <th>Bid time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bid of bids | paginate: { itemsPerPage: 5, currentPage: currentPage }">
+          <td class="product-info">
+          <!-- <img [src]="bid?.image || 'https://via.placeholder.com/40'" alt="Bidder" /> -->
+          <div class="avatar" [ngStyle]="{ 'background-color': getColorFromName(bid.name || '') }">
+            {{ bid.name?.charAt(0)?.toUpperCase() }}
+          </div>
+          <div class="text">
+            <div class="name">{{ bid.name }}</div>
+            <div class="category">Bidder</div>
+          </div>
+        </td>
+        <td>{{ bid.amount }}</td>
+        <td>{{bid.time}}</td>
+        <td>
+          <span class="badge bg-success">Live</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Pagination Controls -->
+  <div class="pagination-wrapper mt-3">
+    <pagination-controls 
+    (pageChange)="currentPage = $event"
+    previousLabel="←"
+    nextLabel="→">
+  </pagination-controls>
+  
+  </div>
+  
+</div>

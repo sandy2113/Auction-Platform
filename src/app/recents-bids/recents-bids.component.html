@@ -1,0 +1,73 @@
+  <!-- <div class="transactions-card">
+    <h3>Recent Transactions</h3>
+    <div class="transaction-item" *ngFor="let t of transactions">
+      <div class="time">{{ t.time }}</div>
+      <div class="dot" [ngClass]="t.color"></div>
+      <div class="details">
+        <span [innerHTML]="t.text"></span>
+        <br />
+        <a *ngIf="t.link" [href]="t.link">{{ t.link }}</a>
+      </div>
+    </div>
+  </div>
+   -->
+  <!-- <div *ngFor="let prod of product">
+    <div class="card" style="width: 18rem;">
+     <img src="..." class="card-img-top" alt="...">
+     <div class="card-body">
+       <h5 class="card-title">{{prod.name}}</h5>
+ 
+       <button href="#" class="btn btn-primary">Go somewhere</button>
+     </div>
+   </div>
+  </div> -->
+  <div class="card" style="width: 18rem;">
+    <img [src]="product.image" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+  
+      <div>
+        Time Remaining: <strong>{{ timeRemaining }}</strong>
+      </div>
+  
+      <div class="py-2">
+        Start Price: <strong>{{ product.currentBid }}</strong>
+      </div>    
+  
+      <!-- 👇 Bid Input Box -->
+      <div class="form-group mb-2">
+        <input 
+        type="number" 
+        [(ngModel)]="bidAmount" 
+        class="form-control rounded-pill"
+        [ngClass]="bidClass"
+        placeholder="Enter your bid" 
+      />
+      <div *ngIf="liveAmount==0">
+        <button 
+          class="btn btn-primary mt-2" 
+          [disabled]="!isValid"
+          (click)="placeBid(bidAmount)"
+        >
+          Place Bid
+        </button>
+      </div>
+      <div *ngIf="liveAmount>0">
+        <button 
+          class="btn btn-primary mt-2" 
+          [disabled]="!isValid || (currentuserId === liveUserId)"
+          (click)="placeBid(bidAmount)"
+        >
+          Place Bid
+        </button>
+      </div>
+      <div *ngIf="!isValid && liveAmount==0" class="text-danger mt-1">
+        Bid must be greater than current bid (₹{{product.currentBid}})
+      </div>
+      <div *ngIf="!isValid && liveAmount!=0" class="text-danger mt-1">
+        Bid must be greater than current bid (₹{{liveAmount}})
+      </div>
+    </div>
+  </div>
+  
+  
