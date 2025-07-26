@@ -55,7 +55,7 @@
       <div *ngIf="liveAmount>0">
         <button 
           class="btn btn-primary mt-2" 
-          [disabled]="!isValid || (currentuserId === liveUserId)"
+          [disabled]="!isValid "
           (click)="placeBid(bidAmount)"
         >
           Place Bid

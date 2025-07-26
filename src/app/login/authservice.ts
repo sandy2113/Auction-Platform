@@ -42,4 +42,9 @@ public imagePath="http://localhost:8080/uploads/images/";
   getUserSubscriptions(userId: string): Observable<string[]> {
     return this.http.get<string[]>(`${this.API_BASE_URL}subscription/user/${userId}`);
   }
+
+  startAuction(auctionId: string): Observable<string> {
+    return this.http.post<string>(`${this.API_BASE_URL}api/auction/start/${auctionId}`, {});
+  }
+  
 }

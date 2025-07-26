@@ -12,7 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductBidsDetailsComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['product', 'progress', 'status', 'sales'];
-  // bids: any[] = [];
   private bidSubscription!: Subscription;
   productId: any;
   previousBids: any[]=[];

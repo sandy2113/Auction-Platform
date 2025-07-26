@@ -44,6 +44,11 @@ import { RecentsBidsComponent } from './recents-bids/recents-bids.component';
 import { ProductBidComponent } from './product-bid/product-bid.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CommonModule } from '@angular/common';
+import { DialogModule } from 'primeng/dialog';
+// import { UserModalComponent } from './user-modal/user-modal.component';
+import { ButtonModule } from 'primeng/button';
+import { UserModalComponent } from './user-modal/user-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,8 +72,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RecentsBidsComponent,
     ProductBidsDetailsComponent,
     ProductBidComponent,
+    UserModalComponent
   ],
   imports: [
+    CommonModule,
+    ButtonModule,
+    DialogModule,
     NgxPaginationModule,
     ToastrModule.forRoot(),
     BrowserModule,

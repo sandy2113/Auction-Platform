@@ -28,6 +28,7 @@ export class AuctionRoomComponent implements OnInit {
   readonly IMAGE_BASE_PATH = this.auctionService.imagePath;
   activeUsers: string[] | undefined;
   activeUsersWithColor: { id: string ,color:string,badge:string}[] = [];
+  auctionOver: boolean=false;
   constructor(
     private route: ActivatedRoute,
     private auctionService: AuthService,
@@ -43,10 +44,17 @@ export class AuctionRoomComponent implements OnInit {
     this.auctionId = this.productId;  
     const user = JSON.parse(sessionStorage.getItem('userDetails') || '{}');
     this.userId = user.userId;
-    this.websocketService.connect(this.auctionId,this.userId);
-    this.websocketService.activeUsers.subscribe(users => {
-      this.activeUsers = users;
+    console.log("PRODUCT ID ISSS",this.auctionId,"++++++++++",this.productId);
+    this.websocketService.connect(this.auctionId, this.userId,(msg: string) => {
+      console.log("connecting to websocket");
+      if (msg === 'Auction is over') {
+        this.auctionOver = true;
+      }
     });
+    // this.websocketService.getActiveUsersObservable(this.auctionId).subscribe(users => {
+    //   console.log("!!!!!!!!!!!!!",users);
+    //   this.activeUsers = users;
+    // });
   }
 
   ngOnDestroy(): void {

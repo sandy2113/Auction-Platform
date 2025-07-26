@@ -29,6 +29,8 @@
     "crypto-browserify": "^3.12.1",
     "ngx-pagination": "^6.0.3",
     "ngx-toastr": "^19.0.0",
+    "primeicons": "^7.0.0",
+    "primeng": "^16.4.2",
     "process": "^0.11.10",
     "rxjs": "~7.5.0",
     "sockjs-client": "^1.6.1",

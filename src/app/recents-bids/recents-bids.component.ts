@@ -1,4 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -45,7 +45,8 @@ bidAmount: number = 0;
       private auctionService: AuthService,
       private websocketService: WebsocketService,
       private toastr: ToastrService,
-      private bidService: BidService
+      private bidService: BidService,
+      private http:HttpClient
     ) {
       const user = JSON.parse(sessionStorage.getItem('userDetails') || '{}');
       this.currentuserId=user.userId;
@@ -57,6 +58,7 @@ bidAmount: number = 0;
     ngOnInit(){
       this.productId = this.route.snapshot.paramMap.get('id') || '';
       this.auctionId = this.productId;
+      this.startAuction(this.productId);
       console.log("productId",this.productId,"auctionId",this.auctionId);  
       this.loadAuctionData(this.productId);
       setInterval(() => {
@@ -186,4 +188,8 @@ trackByTitle(index: number, stat: any): string {
       return '';
     }
     
+    startAuction(auctionId: string) {
+      this.auctionService.startAuction(auctionId).subscribe(() => {
+      });
+    }
 }
